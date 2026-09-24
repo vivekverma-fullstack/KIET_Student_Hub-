@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Lost & Found - KIET Student Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <i data-lucide="graduation-cap"></i>
+      <span>KIET Student Hub</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#academics">Academics</a></li>
+      <li><a href="placements.html">Placements</a></li>
+      <li><a href="lostfound.html" class="active">Lost & Found</a></li>
+      <li><a href="tools.html">Tools</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <h1>Campus Lost & Found Portal</h1>
+    <p>Report misplaced belongings or help reunite lost items with their rightful owners inside the KIET Campus.</p>
+  </header>
+
+  <main class="container">
+    
+    <div class="split-section">
+      <!-- Report Form -->
+      <div class="panel">
+        <h2 class="section-title"><i data-lucide="plus-circle"></i> Post New Item</h2>
+        
+        <div class="filter-group mb-12">
+          <label>Post Type</label>
+          <select>
+            <option value="lost">I Lost Something</option>
+            <option value="found">I Found Something</option>
+          </select>
+        </div>
+
+        <div class="filter-group mb-12">
+          <label>Item Name</label>
+          <input type="text" placeholder="e.g. Black HP Laptop Charger">
+        </div>
+
+        <div class="filter-group mb-12">
+          <label>Location / Spot</label>
+          <input type="text" placeholder="e.g. Block-B Lab 3 / Library 2nd Floor">
+        </div>
+
+        <div class="filter-group mb-20">
+          <label>Contact Info / WhatsApp</label>
+          <input type="text" placeholder="e.g. Roll No. or 98765XXXXX">
+        </div>
+
+        <button class="btn-action btn-cyan">Publish Notice</button>
+      </div>
+
+      <!-- Item Feed List -->
+      <div class="panel">
+        <h2 class="section-title"><i data-lucide="list"></i> Active Campus Listings</h2>
+        
+        <div class="feed-item">
+          <span class="badge badge-danger">LOST</span>
+          <div class="feed-content">
+            <h4>Noise Smartwatch (Silver Strap)</h4>
+            <p><strong>Location:</strong> Main Canteen Lawn area</p>
+            <p><strong>Contact:</strong> 98112XXXXX (Aman - CSE 2nd Yr)</p>
+          </div>
+        </div>
+
+        <div class="feed-item">
+          <span class="badge badge-success">FOUND</span>
+          <div class="feed-content">
+            <h4>College ID Card & Key Ring</h4>
+            <p><strong>Location:</strong> Left at Audi 2 during Seminar</p>
+            <p><strong>Contact:</strong> Submitted at Security Gate 1</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 KIET Student Hub | Designed for Presentation & Classroom Demo</p>
+  </footer>
+
+  <script>lucide.createIcons();</script>
+</body>
+</html>

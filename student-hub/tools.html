@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Utilities - KIET Student Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-brand">
+      <i data-lucide="graduation-cap"></i>
+      <span>KIET Student Hub</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#academics">Academics</a></li>
+      <li><a href="placements.html">Placements</a></li>
+      <li><a href="lostfound.html">Lost & Found</a></li>
+      <li><a href="tools.html" class="active">Tools</a></li>
+    </ul>
+  </nav>
+
+  <header class="hero">
+    <h1>Academic Calculators & Utilities</h1>
+    <p>Smart tools designed specifically for KIET students to track attendance goals and evaluate academic performance.</p>
+  </header>
+
+  <main class="container">
+    <div class="split-section">
+      
+      <!-- Interactive Attendance Calculator -->
+      <div class="panel">
+        <h2 class="section-title"><i data-lucide="calculator"></i> 75% Attendance Calculator</h2>
+        
+        <div class="filter-group mb-12">
+          <label>Total Classes Conducted</label>
+          <input type="number" id="totalClasses" placeholder="e.g. 50">
+        </div>
+        
+        <div class="filter-group mb-12">
+          <label>Total Classes Attended</label>
+          <input type="number" id="attendedClasses" placeholder="e.g. 32">
+        </div>
+
+        <button class="btn-action mb-12" onclick="calculateAttendance()">Calculate Status</button>
+
+        <div id="attendanceResult" class="result-box hidden"></div>
+      </div>
+
+      <!-- SGPA / Internal Marks Estimator -->
+      <div class="panel">
+        <h2 class="section-title"><i data-lucide="award"></i> Sessional Marks Tracker</h2>
+        <div class="filter-group mb-12">
+          <label>CT-1 Marks (Out of 30)</label>
+          <input type="number" placeholder="e.g. 24">
+        </div>
+        <div class="filter-group mb-12">
+          <label>CT-2 Marks (Out of 30)</label>
+          <input type="number" placeholder="e.g. 26">
+        </div>
+        <div class="filter-group mb-12">
+          <label>Assignment & Teacher Assessment (Out of 10)</label>
+          <input type="number" placeholder="e.g. 9">
+        </div>
+        <button class="btn-action btn-cyan">Estimate Internal Marks</button>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 KIET Student Hub | Designed for Presentation & Classroom Demo</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    function calculateAttendance() {
+      const total = parseInt(document.getElementById('totalClasses').value);
+      const attended = parseInt(document.getElementById('attendedClasses').value);
+      const resultDiv = document.getElementById('attendanceResult');
+
+      if (isNaN(total) || isNaN(attended) || total <= 0 || attended < 0 || attended > total) {
+        resultDiv.className = "result-box danger";
+        resultDiv.innerHTML = "Please enter valid numbers for total and attended classes.";
+        resultDiv.classList.remove('hidden');
+        return;
+      }
+
+      const currentPercentage = ((attended / total) * 100).toFixed(1);
+      
+      if (currentPercentage >= 75) {
+        const canBunk = Math.floor((attended - 0.75 * total) / 0.75);
+        resultDiv.className = "result-box success";
+        resultDiv.innerHTML = `<strong>Current Attendance: ${currentPercentage}%</strong><br>You are safely above 75%. You can skip up to <strong>${canBunk}</strong> upcoming class(es) without falling below 75%.`;
+      } else {
+        const needToAttend = Math.ceil((0.75 * total - attended) / 0.25);
+        resultDiv.className = "result-box warning";
+        resultDiv.innerHTML = `<strong>Current Attendance: ${currentPercentage}%</strong><br>You are short of 75%. You need to attend the next <strong>${needToAttend}</strong> consecutive class(es) to reach 75%.`;
+      }
+      resultDiv.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>

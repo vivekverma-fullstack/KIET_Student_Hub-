@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KIET Student Hub - Campus Management Portal</title>
+  
+  <!-- External CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Google Fonts & Lucide Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <i data-lucide="graduation-cap"></i>
+      <span>KIET Student Hub</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="#academics">Academics</a></li>
+      <li><a href="placements.html">Placements</a></li>
+      <li><a href="lostfound.html">Lost & Found</a></li>
+      <li><a href="tools.html">Tools</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO SECTION -->
+  <header class="hero">
+    <h1>Centralized Academic Resource Hub</h1>
+    <p>Access department-wise notes, interview insights, and utilities tailored for KIET Group of Institutions.</p>
+    <div class="quick-branch-select">
+      <button class="branch-btn">B.Tech (CSE/AI/DS/IT/ECE/ME)</button>
+      <button class="branch-btn">MCA Core & Specializations</button>
+      <button class="branch-btn">MBA (HR/Finance/Marketing)</button>
+      <button class="branch-btn">B.Pharma</button>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="container">
+
+    <!-- ACADEMICS & NOTES SECTION -->
+    <section id="academics">
+      <h2 class="section-title"><i data-lucide="book-open"></i> Academic Vault</h2>
+      
+      <!-- Cascading Filter UI -->
+      <div class="filter-box">
+        <div class="filter-group">
+          <label>Course</label>
+          <select>
+            <option>B.Tech</option>
+            <option>MCA</option>
+            <option>MBA</option>
+            <option>B.Pharma</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Sub-Branch / Specialization</label>
+          <select>
+            <option>CSE (Computer Science & Engg)</option>
+            <option>CSE (Artificial Intelligence)</option>
+            <option>CSE (AI & ML)</option>
+            <option>CSE (Data Science)</option>
+            <option>IT (Information Technology)</option>
+            <option>ECE / EN / ME</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label>Semester</label>
+          <select>
+            <option>Semester 1</option>
+            <option>Semester 2</option>
+            <option>Semester 3</option>
+            <option>Semester 4</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Resource Grid -->
+      <div class="card-grid">
+        <div class="card">
+          <div>
+            <span class="badge">B.TECH • SEM 3</span>
+            <h3>Data Structures & Algorithms</h3>
+            <p>Comprehensive unit-wise notes covering Trees, Graphs, and Dynamic Programming.</p>
+          </div>
+          <button class="btn-action">Download PDF</button>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="badge">MCA • SEM 2</span>
+            <h3>Operating Systems Revision</h3>
+            <p>Process synchronization, deadlock management, and memory allocation summaries.</p>
+          </div>
+          <button class="btn-action">Download PDF</button>
+        </div>
+
+        <div class="card">
+          <div>
+            <span class="badge">MBA • SEM 1</span>
+            <h3>Financial Management</h3>
+            <p>Core concepts of corporate finance, capital budgeting, and market analysis.</p>
+          </div>
+          <button class="btn-action">Download PDF</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- QUICK PREVIEW SECTION FOR OTHER PAGES -->
+    <div class="split-section">
+      
+      <div class="panel">
+        <h2 class="section-title"><i data-lucide="briefcase"></i> Placements & Interviews</h2>
+        <p style="color: var(--text-mid); margin-bottom: 16px;">Explore recent interview experiences and recruitment stats from campus drives.</p>
+        <a href="placements.html" class="btn-action" style="display: inline-block; text-align: center; text-decoration: none;">View Placement Hub</a>
+      </div>
+
+      <div class="panel">
+        <h2 class="section-title"><i data-lucide="calculator"></i> Student Utilities</h2>
+        <p style="color: var(--text-mid); margin-bottom: 16px;">Calculate 75% attendance targets and internal sessional marks effortlessly.</p>
+        <a href="tools.html" class="btn-action btn-cyan" style="display: inline-block; text-align: center; text-decoration: none;">Open Calculators</a>
+      </div>
+
+    </div>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 KIET Student Hub | Designed for Presentation & Classroom Demo</p>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
