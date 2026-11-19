@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academics &amp; Notes Vault - KIET Student Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-mark"><i data-lucide="graduation-cap" size="18"></i></span>
+        <span>KIET Student Hub</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html" class="active">Academics</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li><a href="lostfound.html">Lost &amp; Found</a></li>
+        <li><a href="tools.html">Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+          <i data-lucide="moon" size="17"></i>
+        </button>
+        <button class="icon-btn menu-toggle" id="menuToggle" title="Menu" aria-label="Toggle Menu">
+          <i data-lucide="menu" size="18"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-kicker"><i data-lucide="book-open" size="14"></i> Academic Vault</span>
+      <h1>Department Notes, PYQs &amp; Lab Manuals</h1>
+      <p>Filter resources by course, branch, semester, or resource type, and bookmark subjects for quick revision.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="section-header">
+      <h2 class="section-title"><i data-lucide="folder-open" size="20"></i> Study Resources</h2>
+      <span class="badge" id="notesCount">Loading...</span>
+    </div>
+
+    <!-- Card Type Filter Chips -->
+    <div class="chip-bar" id="acadChipBar">
+      <button class="filter-chip active" data-chip="All">All Resources</button>
+      <button class="filter-chip" data-chip="Notes">Unit Notes</button>
+      <button class="filter-chip" data-chip="PYQs">AKTU PYQs</button>
+      <button class="filter-chip" data-chip="Lab">Lab &amp; Viva</button>
+    </div>
+
+    <div class="filter-box">
+      <div class="filter-group">
+        <label for="filterCourse">Course</label>
+        <select id="filterCourse">
+          <option value="All">All Courses</option>
+          <option value="B.Tech">B.Tech</option>
+          <option value="MCA">MCA</option>
+          <option value="MBA">MBA</option>
+          <option value="B.Pharma">B.Pharma</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filterBranch">Branch / Specialization</label>
+        <select id="filterBranch"><option value="All">All</option></select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filterSem">Semester</label>
+        <select id="filterSem">
+          <option value="All">All Semesters</option>
+          <option value="Semester 1">Semester 1</option>
+          <option value="Semester 2">Semester 2</option>
+          <option value="Semester 3">Semester 3</option>
+          <option value="Semester 4">Semester 4</option>
+        </select>
+      </div>
+
+      <div class="filter-group">
+        <label for="filterSearch">Search Subject / Code</label>
+        <input type="text" id="filterSearch" placeholder="e.g. BCS-301 or DSA">
+      </div>
+    </div>
+
+    <div class="mb-16" style="display:flex; align-items:center; gap:8px;">
+      <input type="checkbox" id="filterSavedOnly" style="width:16px; height:16px; accent-color:var(--accent);">
+      <label for="filterSavedOnly" style="font-size:0.9rem; color:var(--text-muted); cursor:pointer;">Show only my bookmarked notes</label>
+    </div>
+
+    <div class="card-grid" id="notesGrid"></div>
+  </main>
+
+  <!-- Note Preview Modal -->
+  <div class="modal-backdrop" id="noteModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div>
+          <h3 id="modalTitle">Subject Title</h3>
+          <p id="modalMeta" style="font-size:0.85rem; color:var(--text-muted);"></p>
+        </div>
+        <button class="icon-btn" data-close-modal aria-label="Close modal"><i data-lucide="x" size="18"></i></button>
+      </div>
+      <p style="font-weight:600; font-size:0.9rem; margin-bottom:8px;">Included Units &amp; Topics:</p>
+      <ul id="modalTopics" style="padding-left:1.25rem; color:var(--text-muted); font-size:0.92rem; margin-bottom:1.25rem;"></ul>
+      <div style="display:flex; gap:0.6rem;">
+        <button class="btn-action" id="modalDownloadBtn"><i data-lucide="download" size="16"></i> Download Notes PDF</button>
+        <button class="btn-secondary" data-close-modal>Close</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>KIET Student Hub • Built by KIETians, for KIETians (Muradnagar)</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

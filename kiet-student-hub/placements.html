@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Placements &amp; Interview Archive - KIET Student Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-mark"><i data-lucide="graduation-cap" size="18"></i></span>
+        <span>KIET Student Hub</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="placements.html" class="active">Placements</a></li>
+        <li><a href="lostfound.html">Lost &amp; Found</a></li>
+        <li><a href="tools.html">Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+          <i data-lucide="moon" size="17"></i>
+        </button>
+        <button class="icon-btn menu-toggle" id="menuToggle" title="Menu" aria-label="Toggle Menu">
+          <i data-lucide="menu" size="18"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-kicker"><i data-lucide="briefcase" size="14"></i> Training &amp; Placement Cell Insights</span>
+      <h1>Placements &amp; Senior Interview Archive</h1>
+      <p>Real round-by-round breakdowns, coding questions, and prep tips shared by KIET seniors.</p>
+    </div>
+  </header>
+
+  <main class="container">
+
+    <div class="stats-bar">
+      <div class="stat-card"><h3>300+</h3><p>Recruiting Partners</p></div>
+      <div class="stat-card"><h3>₹ 48.5 LPA</h3><p>Highest Package</p></div>
+      <div class="stat-card"><h3>92%</h3><p>Placement Track Record</p></div>
+    </div>
+
+    <div class="section-header">
+      <h2 class="section-title"><i data-lucide="file-text" size="20"></i> Campus Drive Experiences</h2>
+      <div class="filter-group" style="min-width:240px;">
+        <input type="text" id="placementSearch" placeholder="Search company, role, or topic...">
+      </div>
+    </div>
+
+    <!-- Placement Card Filter Chips -->
+    <div class="chip-bar" id="placementChipBar">
+      <button class="filter-chip active" data-tier="all">All Drives</button>
+      <button class="filter-chip" data-tier="product">Product / 10+ LPA</button>
+      <button class="filter-chip" data-tier="service">Service / 4–8 LPA</button>
+    </div>
+
+    <div class="card-grid" id="placementsGrid"></div>
+
+    <section class="panel">
+      <h2 class="section-title mb-12"><i data-lucide="plus-circle" size="20"></i> Share Your Interview Experience</h2>
+      <p class="mb-16" style="color:var(--text-muted); font-size:0.9rem;">Got placed or appeared for a drive? Add your round details to help juniors prepare.</p>
+      <form id="shareExpForm">
+        <div class="filter-box" style="box-shadow:none; padding:0; border:none; margin-bottom:12px;">
+          <div class="filter-group"><label for="expCompany">Company Name</label><input type="text" id="expCompany" placeholder="e.g. Infosys SP" required></div>
+          <div class="filter-group"><label for="expPackage">Package (LPA)</label><input type="text" id="expPackage" placeholder="e.g. 9.5 LPA"></div>
+          <div class="filter-group"><label for="expTier">Company Category</label><select id="expTier"><option value="service">Service / 4–8 LPA</option><option value="product">Product / 10+ LPA</option></select></div>
+          <div class="filter-group"><label for="expRole">Role</label><input type="text" id="expRole" placeholder="e.g. Specialist Programmer" required></div>
+          <div class="filter-group"><label for="expAuthorInput">Your Name &amp; Branch</label><input type="text" id="expAuthorInput" placeholder="e.g. Kunal (CSE '26)"></div>
+        </div>
+        <div class="filter-group mb-12"><label for="expRoundInput">Round-by-Round Details (one round per line)</label><textarea id="expRoundInput" rows="3" placeholder="Round 1: Online coding test...&#10;Round 2: Technical interview..." required></textarea></div>
+        <div class="filter-group mb-16"><label for="expTipsInput">Quick Advice for Juniors</label><input type="text" id="expTipsInput" placeholder="e.g. Focus on DP and SQL queries."></div>
+        <button type="submit" class="btn-action" style="width:auto;">Publish Experience</button>
+      </form>
+    </section>
+
+  </main>
+
+  <div class="modal-backdrop" id="expModal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <div><h3 id="expTitle">Company</h3><p id="expAuthor" style="font-size:0.85rem; color:var(--text-muted);"></p></div>
+        <button class="icon-btn" data-close-modal aria-label="Close modal"><i data-lucide="x" size="18"></i></button>
+      </div>
+      <p style="font-weight:600; font-size:0.9rem; margin-bottom:8px;">Selection Rounds:</p>
+      <ul id="expRounds" style="padding-left:1.25rem; color:var(--text-muted); font-size:0.92rem; margin-bottom:1rem;"></ul>
+      <div class="result-box warning" style="margin-top:0; margin-bottom:1rem;"><strong>Senior's Tip:</strong> <span id="expTips"></span></div>
+      <button class="btn-secondary" data-close-modal>Close</button>
+    </div>
+  </div>
+
+  <footer>
+    <p>KIET Student Hub • Built by KIETians, for KIETians (Muradnagar)</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

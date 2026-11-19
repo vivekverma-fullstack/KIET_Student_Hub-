@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Utilities - KIET Student Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-mark"><i data-lucide="graduation-cap" size="18"></i></span>
+        <span>KIET Student Hub</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li><a href="lostfound.html">Lost &amp; Found</a></li>
+        <li><a href="tools.html" class="active">Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+          <i data-lucide="moon" size="17"></i>
+        </button>
+        <button class="icon-btn menu-toggle" id="menuToggle" title="Menu" aria-label="Toggle Menu">
+          <i data-lucide="menu" size="18"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-kicker"><i data-lucide="calculator" size="14"></i> Academic Toolkit</span>
+      <h1>Attendance, Sessional &amp; SGPA Calculators</h1>
+      <p>Quickly check your 75% attendance margin, estimate AKTU internal marks, and compute semester SGPA.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="split-section">
+      <div class="panel">
+        <h2 class="section-title mb-16"><i data-lucide="calendar-check" size="20"></i> Attendance Tracker</h2>
+        <div class="filter-group mb-12"><label for="totalClasses">Total Classes Conducted</label><input type="number" id="totalClasses" placeholder="e.g. 50" min="1"></div>
+        <div class="filter-group mb-12"><label for="attendedClasses">Total Classes Attended</label><input type="number" id="attendedClasses" placeholder="e.g. 34" min="0"></div>
+        <div class="filter-group mb-16">
+          <label for="targetPercent">Target Attendance (%)</label>
+          <select id="targetPercent"><option value="75" selected>75% (Minimum Required)</option><option value="80">80% (Safe Buffer)</option><option value="85">85% (Bonus Marks)</option></select>
+        </div>
+        <button class="btn-action" id="calcAttendanceBtn">Calculate Status</button>
+        <div id="attendanceResult" class="result-box hidden"></div>
+      </div>
+
+      <div class="panel">
+        <h2 class="section-title mb-16"><i data-lucide="award" size="20"></i> Sessional Internal Estimator</h2>
+        <div class="filter-group mb-12"><label for="ct1Marks">CT-1 Marks (Out of 30)</label><input type="number" id="ct1Marks" placeholder="e.g. 24" min="0" max="30"></div>
+        <div class="filter-group mb-12"><label for="ct2Marks">CT-2 Marks (Out of 30)</label><input type="number" id="ct2Marks" placeholder="e.g. 26" min="0" max="30"></div>
+        <div class="filter-group mb-16"><label for="taMarks">Assignment &amp; Teacher Assessment (Out of 10)</label><input type="number" id="taMarks" placeholder="e.g. 9" min="0" max="10"></div>
+        <button class="btn-action" id="calcInternalBtn">Estimate Internal Marks</button>
+        <div id="internalResult" class="result-box hidden"></div>
+      </div>
+    </div>
+
+    <section class="panel">
+      <div class="section-header" style="margin-bottom:1rem;">
+        <h2 class="section-title"><i data-lucide="bar-chart-2" size="20"></i> AKTU SGPA &amp; Percentage Estimator</h2>
+        <button type="button" class="btn-secondary" id="addSubjectRow">+ Add Subject</button>
+      </div>
+      <div id="sgpaRows" class="mb-16"></div>
+      <button type="button" class="btn-action" id="calcSgpaBtn" style="width:auto;">Calculate SGPA</button>
+      <div id="sgpaResult" class="result-box hidden"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>KIET Student Hub • Built by KIETians, for KIETians (Muradnagar)</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

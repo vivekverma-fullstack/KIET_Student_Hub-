@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Campus Lost &amp; Found - KIET Student Hub</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+</head>
+<body>
+
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-brand">
+        <span class="brand-mark"><i data-lucide="graduation-cap" size="18"></i></span>
+        <span>KIET Student Hub</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="academics.html">Academics</a></li>
+        <li><a href="placements.html">Placements</a></li>
+        <li><a href="lostfound.html" class="active">Lost &amp; Found</a></li>
+        <li><a href="tools.html">Tools</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" title="Toggle Dark Mode" aria-label="Toggle Dark Mode">
+          <i data-lucide="moon" size="17"></i>
+        </button>
+        <button class="icon-btn menu-toggle" id="menuToggle" title="Menu" aria-label="Toggle Menu">
+          <i data-lucide="menu" size="18"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-kicker"><i data-lucide="search" size="14"></i> Campus Helpdesk</span>
+      <h1>Campus Lost &amp; Found Portal</h1>
+      <p>Report misplaced belongings or return found items around Block-A, Block-B, Canteen, Library, and Gate 1.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="split-section">
+      <div class="panel">
+        <h2 class="section-title mb-16"><i data-lucide="plus-circle" size="20"></i> Post New Notice</h2>
+        <form id="lfForm">
+          <div class="filter-group mb-12">
+            <label for="lfType">Post Type</label>
+            <select id="lfType"><option value="lost">I Lost Something</option><option value="found">I Found Something</option></select>
+          </div>
+          <div class="filter-group mb-12">
+            <label for="lfItem">Item Name</label>
+            <input type="text" id="lfItem" placeholder="e.g. Black HP Laptop Charger" required>
+          </div>
+          <div class="filter-group mb-12">
+            <label for="lfLocation">Location / Spot</label>
+            <input type="text" id="lfLocation" placeholder="e.g. Block-B Lab 3 / Library 2nd Floor" required>
+          </div>
+          <div class="filter-group mb-20">
+            <label for="lfContact">Contact Info / WhatsApp</label>
+            <input type="text" id="lfContact" placeholder="e.g. Aman (CSE 2nd Yr) - 98765XXXXX" required>
+          </div>
+          <button type="submit" class="btn-action">Publish Notice</button>
+        </form>
+      </div>
+
+      <div class="panel">
+        <div class="section-header" style="margin-bottom:0.75rem;">
+          <h2 class="section-title"><i data-lucide="list" size="20"></i> Active Listings</h2>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 140px; gap:0.6rem; margin-bottom:1rem;">
+          <div class="filter-group"><input type="text" id="lfSearch" placeholder="Search item or location..."></div>
+          <div class="filter-group">
+            <select id="lfFilterType">
+              <option value="all">All Posts</option>
+              <option value="lost">Lost Only</option>
+              <option value="found">Found Only</option>
+            </select>
+          </div>
+        </div>
+        <div id="lfFeed"></div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>KIET Student Hub • Built by KIETians, for KIETians (Muradnagar)</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
